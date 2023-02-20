@@ -14,7 +14,7 @@ const fs = require('fs');
 
 //middlewares
 const express = require('express')
-const { request, response } = require('express');
+const { req, res } = require('express');
 const { uploadImage } = require("../middlewares/imgUser");
 const { json } = require("body-parser");
 const Op = require(`sequelize`).Op
@@ -25,7 +25,7 @@ app.use(express.json())
 
 //<<<<<<<<<<<<< api >>>>>>>>>>>>>>>>>>>
 //api get
-app.get('/', auth, async (req, res) => {
+app.get('/', async (req, res) => {
     await user.findAll()
         .then(result => res.json({ data: result }))
         .catch(error => res.json({ message: error.message }));
@@ -55,8 +55,8 @@ app.post('/', auth, upload.uploadImage.single('foto'), async (req, res) => {
         .catch(error => res.json({ message: error.message }));
 });
 
-app.put('/', auth, upload.uploadImage.single('foto'), async (req, res) => {
-    let params = { id: req.body.id };
+app.put('/:id', auth, upload.uploadImage.single('foto'), async (req, res) => {
+    let params = { id: req.params.id };
     let data = {
         nama_user: req.body.nama_user,
         email: req.body.email,
@@ -74,11 +74,11 @@ app.put('/', auth, upload.uploadImage.single('foto'), async (req, res) => {
     }
 
     await user.update(data, { where: params })
-        .then(result => res.json({ success: 1, message: "Data telah diupdate" }))
+        .then(result => res.json({ success: 1, message: "Data has been updated", data: data }))
         .catch(error => res.json({ message: error.message }))
 });
 
-app.delete('/:id', auth, async (req, res) => {
+app.delete('/:id', async (req, res) => {
     let params = { id: req.params.id }
 
     let delImg = await user.findOne({ where: params });
@@ -147,7 +147,7 @@ app.post("/pencarian", async (req, res) => {
             ]
         }
     })
-    return response.json({
+    return res.json({
         success: true,
         data: users,
         message: `all users have been loaded`
