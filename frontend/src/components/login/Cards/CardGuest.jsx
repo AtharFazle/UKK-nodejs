@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import PersonIcon from "@mui/icons-material/Person";
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+
 
 
 const CardGuest = () => {
@@ -14,7 +14,7 @@ const CardGuest = () => {
     },
   };
   return (
-    <div className="hover:scale-105" onClick={() => navigateTo("/LoginGuest")}>
+    <div className="hover:scale-105" onClick={() => navigateTo("/LandingPageGuest")}>
       <div className="bg-blue-300 p-10 rounded-lg shadow-md">
         <div className="flex">
           <div className="flex-1">
@@ -29,7 +29,7 @@ const CardGuest = () => {
           <PersonIcon style={styles.icon} />
         </div>
         <button className="bg-orange-400 py-3 px-8 mt-4 rounded text-sm font-semibold hover:bg-opacity-75"
-        onClick={() => navigateTo("/LoginGuest")}
+        onClick={() => navigateTo("/LandingPageGuest")}
         >
           Login
         </button>

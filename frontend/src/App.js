@@ -6,6 +6,8 @@ import Home from "./components/Home/Home";
 import LoginPage from "./components/login/loginPage";
 import LoginAdmin from "./components/login/LoginAdmin";
 import LoginResepsionis from "./components/login/LoginResepsionis";
+import LandingPageGuest from "./pages/guest/LandingPageGuest";
+
 
 import {
   BrowserRouter as Router, Routes, Route
@@ -29,6 +31,11 @@ function App() {
 
           {/* <<<<<user>>>>>>>>>>> */}
           <Route path='/User' element={<UserList />} />
+
+
+
+           {/* <<<<<Guest>>>>>>>>>>> */}
+           <Route path='/LandingPageGuest' element={<LandingPageGuest />} />
         </Routes>
       </Router>
     </div >
