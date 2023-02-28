@@ -3,7 +3,7 @@
 const {
   Model
 } = require('sequelize');
-const user = require('./user');
+
 module.exports = (sequelize, DataTypes) => {
 
   class detail_pemesanan extends Model {
@@ -27,5 +27,5 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'detail_pemesanan',
   });
   return detail_pemesanan;
-  module.exports = detail_pemesanan;
+
 };

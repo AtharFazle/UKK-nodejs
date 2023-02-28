@@ -38,7 +38,7 @@ app.get('/:id', async (req, res) => {
 });
 
 
-app.post('/', auth, upload.uploadImage.single('foto'), async (req, res) => {
+app.post('/',upload.uploadImage.single('foto'), async (req, res) => {
     let data = {
         nama_tipe_kamar: req.body.nama_tipe_kamar,
         foto: req.file.filename,

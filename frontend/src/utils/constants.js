@@ -1,0 +1,1 @@
+export const API_URL = "hhttp://localhost:5000/hotel/"

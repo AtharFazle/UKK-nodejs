@@ -32,11 +32,11 @@ module.exports = {
       },
       id_tipe_kamar: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          models: "tipe_kamar",
-          key: "id",
-        }
+        allowNull: false
+        // references: {
+        //   models: "tipe_kamar",
+        //   key: "id",
+        // }
       },
       status_pemesanan: {
         type: Sequelize.ENUM('baru', 'check_in', 'check_out')
