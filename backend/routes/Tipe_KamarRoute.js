@@ -38,7 +38,7 @@ app.get('/:id', async (req, res) => {
 });
 
 
-app.post('/',upload.uploadImage.single('foto'), async (req, res) => {
+app.post('/',auth,upload.uploadImage.single('foto'), async (req, res) => {
     let data = {
         nama_tipe_kamar: req.body.nama_tipe_kamar,
         foto: req.file.filename,
@@ -82,7 +82,7 @@ app.put('/:id', upload.uploadImage.single('foto'), async (req, res) => {
         .catch(error => res.json({ message: error.message }))
 });
 
-app.delete('/:id', upload.uploadImage.single('foto'), async (req, res) => {
+app.delete('/:id',auth, upload.uploadImage.single('foto'), async (req, res) => {
     let params = { id: req.params.id }
 
     let delimg = await tipe_kamar.findOne({ where: params })

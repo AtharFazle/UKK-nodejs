@@ -42,33 +42,40 @@ app.get("/:id", async (req, res) => {
 
 
 app.post('/', async (req, res) => {
-    let nama_tipe_kamar = req.body.nama_tipe_kamar
-    let tipeId = await tipe_kamar.findOne({
-        where: {
-            [Op.and]: [{ nama_tipe_kamar: { [Op.substring]: nama_tipe_kamar } }],
-        },
+    const nama_tipe_kamar = req.body.nama_tipe_kamar;
+  let tipeId = await tipe_kamar.findOne({
+    where: {
+      [Op.and]: [{ nama_tipe_kamar: { [Op.substring]: nama_tipe_kamar } }],
+    },
+  });
+  console.log(tipeId);
+
+  if (tipeId === null) {
+    return response.json({
+      success: false,
+      message: `Tipe kamar yang anda inputkan tidak ada`,
     });
-    console.log(tipeId);
-    if (tipeId === null) {
+  } else {
+    let newRoom = {
+      nomor_kamar: req.body.nomor_kamar,
+      id_tipe_kamar: tipeId.id,
+    };
+    kamar
+      .create(newRoom)
+      .then((result) => {
         return res.json({
-            success: false,
-            message: `Tipe kamar has not found`,
+          success: true,
+          data: result,
+          message: `New kamar has been inserted`,
         });
-    } else {
-        let data = {
-            nomor_kamar: req.body.nomor_kamar,
-            id_tipe_kamar: req.body.id_tipe_kamar
-        }
-        kamar
-            .create(data)
-            .then((result) => {
-                return res.json({
-                    success: true,
-                    data: result,
-                    message: `New Kamar Has been Inserted`,
-                });
-            });
-    }
+      })
+      .catch((error) => {
+        return res.json({
+          success: false,
+          message: error.message,
+        });
+      });
+  }
 })
 
 app.put('/:id', async (req, res) => {
@@ -104,14 +111,15 @@ app.put('/:id', async (req, res) => {
     }
 })
 
-app.delete('/:id', async (req, res) => {
+app.delete('/:id',auth, async (req, res) => {
     let params = {
         id: req.params.id
     }
     const response = await kamar.destroy({ where: params })
-        .then(result => res.json({ data: res -= ult, message: "delete success" }))
+        .then(result => res.json({success:1, message: "delete success" }))
         .catch((error) => res.json({ error: error.message }))
 })
+
 
 app.post('/avaible', async (req, res) => {
     const tgl_akses_satu = new Date(req.body.tgl_akses_satu)

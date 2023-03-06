@@ -28,7 +28,7 @@ export default class ListUser extends Component {
 console.log(this.state.Users)
         return (
             <div>
-                {this.state.nama_tipe_kamar}
+                
             </div>
                    
         )
