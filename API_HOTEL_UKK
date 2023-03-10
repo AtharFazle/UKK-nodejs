@@ -1,0 +1,857 @@
+{
+	"info": {
+		"_postman_id": "bc04dda8-9e43-4946-90ae-2cac0293d9c2",
+		"name": "UKK",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "get_user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6InJlc2Vwc2lvbmlzIiwiaWF0IjoxNjc4MTY5NDU1LCJleHAiOjE2NzgxNzMwNTV9.kBQfDXLI1SHN2s8qiE1NvLL67VQxaW3CNZqbi7YPpTA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/hotel/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_user",
+									"value": "Afrian",
+									"type": "default"
+								},
+								{
+									"key": "foto",
+									"type": "file",
+									"src": "/C:/Users/Adrian Comp/OneDrive/Gambar/download.jfif"
+								},
+								{
+									"key": "email",
+									"value": "afrian@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "afrian1234",
+									"type": "default"
+								},
+								{
+									"key": "role",
+									"value": "resepsionis",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_userbyId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/hotel/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_user",
+									"value": "athar",
+									"type": "default"
+								},
+								{
+									"key": "foto",
+									"type": "file",
+									"src": "/C:/Users/Adrian Comp/OneDrive/Gambar/7c195a7fbbdb8faee533f8324219d399.jpg"
+								},
+								{
+									"key": "email",
+									"value": "athar@gmail.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "athar1234",
+									"type": "default"
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/hotel/user/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "\"eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtYV91c2VyIjoiYXRoYXIiLCJmb3RvIjoidXNyX2ltZy0xNjc3Njc4MjE4NDAzLmpwZyIsImVtYWlsIjoiYXRoYXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiI4MTFhZjk1ZDdkYmZjMTI2YzJjMjA2NDhmYTRkODU2YiIsInJvbGUiOiJhZG1pbiIsImNyZWF0ZWRBdCI6IjIwMjMtMDItMjdUMTI6MDg6NDQuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDMtMDFUMTM6NDM6MzguMDAwWiJ9.0ntw6pIgvjTIlBYkif8AzJdahnToh5VkzcfXR8BIXEE\"",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"atharfazle202@gmail.com\",\r\n    \"password\":\"athar1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pencarian_user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "At",
+								"value": "",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"keyword\":\"resepsionis\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/user/pencarian",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"user",
+								"pencarian"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "kamar",
+			"item": [
+				{
+					"name": "get_all_kamar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/hotel/kamar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"kamar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_kamarById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/hotel/kamar/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"kamar",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_kamar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjc4NDM2NDA4LCJleHAiOjE2Nzg0NDAwMDh9.ZFbIcB3uU0VRJxWMeraAPuwzd5XSsrOf9bjOht2cgRU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama_tipe_kamar\":\"Presiden Suite Room\",\r\n    \"nomor_kamar\":10\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/kamar/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"kamar",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_kamar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"nama_tipe_kamar\":\"standart\",\r\n    \"nomor_kamar\":2,\r\n    \"id_tipe_kamar\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/kamar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"kamar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_kamar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/hotel/kamar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"kamar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tipe_kamar",
+			"item": [
+				{
+					"name": "get_all_tipe_kamar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"nama_tipe_kamar\":\"standart\",\r\n    \"nomor_kamar\":2,\r\n    \"id_tipe_kamar\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/tipe_kamar/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"tipe_kamar",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_tipe_kamarById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/hotel/tipe_kamar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"tipe_kamar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tipe_kamar_pencarian",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"keyword\":\"deluxe room\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/tipe_kamar/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"tipe_kamar",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add_tipe_kamar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjc4NDM2NDA4LCJleHAiOjE2Nzg0NDAwMDh9.ZFbIcB3uU0VRJxWMeraAPuwzd5XSsrOf9bjOht2cgRU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_tipe_kamar",
+									"value": "Presiden Suite Room",
+									"type": "default"
+								},
+								{
+									"key": "harga",
+									"value": "1200000",
+									"type": "default"
+								},
+								{
+									"key": "foto",
+									"type": "file",
+									"src": "/C:/Users/athar/Desktop/6.-Presidential-room-sumber-gambar-6sqft.jpg"
+								},
+								{
+									"key": "deskripsi",
+									"value": "Presidential suite adalah tipe kamar hotel yang terbaik dan paling mahal. Bahkan, tidak semua hotel memiliki presidential suite.\n\nFasilitas yang ditawarkan pun tentu yang terbaik, mulai dari interior, pemandangan kamar, dan masih banyak lainnya.",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/tipe_kamar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"tipe_kamar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_tipe_kamar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_tipe_kamar",
+									"value": "President suite",
+									"type": "default"
+								},
+								{
+									"key": "harga",
+									"value": "30000",
+									"type": "default"
+								},
+								{
+									"key": "foto",
+									"type": "file",
+									"src": "/C:/Users/Adrian Comp/OneDrive/Gambar/7c195a7fbbdb8faee533f8324219d399.jpg"
+								},
+								{
+									"key": "deskripsi",
+									"value": "Seperti namanya, jenis kamar standard room adalah tipe kamar hotel yang paling dasar di hotel.\n\nBiasanya, kamar tipe ini dibanderol dengan harga yang relatif murah. Fasilitas yang ditawarkan pun standar seperti kasur ukuran king size atau dua queen size. ",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/tipe_kamar/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"tipe_kamar",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_tipe_kamar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/hotel/tipe_kamar/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"tipe_kamar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pemesanan",
+			"item": [
+				{
+					"name": "Get_Pemesanan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjc4NDM2NDA4LCJleHAiOjE2Nzg0NDAwMDh9.ZFbIcB3uU0VRJxWMeraAPuwzd5XSsrOf9bjOht2cgRU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/hotel/pemesanan/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"pemesanan",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_PemesananById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjc4NDM2NDA4LCJleHAiOjE2Nzg0NDAwMDh9.ZFbIcB3uU0VRJxWMeraAPuwzd5XSsrOf9bjOht2cgRU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_tipe_kamar",
+									"value": "standarts",
+									"type": "default"
+								},
+								{
+									"key": "harga",
+									"value": "30000",
+									"type": "default"
+								},
+								{
+									"key": "foto",
+									"type": "file",
+									"src": "/C:/Users/Adrian Comp/OneDrive/Gambar/7c195a7fbbdb8faee533f8324219d399.jpg"
+								},
+								{
+									"key": "deskripsi",
+									"value": "Seperti namanya, jenis kamar standard room adalah tipe kamar hotel yang paling dasar di hotel.\n\nBiasanya, kamar tipe ini dibanderol dengan harga yang relatif murah. Fasilitas yang ditawarkan pun standar seperti kasur ukuran king size atau dua queen size. ",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/pemesanan/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"pemesanan",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add_Pemesanan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtYV91c2VyIjoiYXRoYXIiLCJmb3RvIjoidXNyX2ltZy0xNjc3Njc4MjE4NDAzLmpwZyIsImVtYWlsIjoiYXRoYXJAZ21haWwuY29tIiwicGFzc3dvcmQiOiI4MTFhZjk1ZDdkYmZjMTI2YzJjMjA2NDhmYTRkODU2YiIsInJvbGUiOiJhZG1pbiIsImNyZWF0ZWRBdCI6IjIwMjMtMDItMjdUMTI6MDg6NDQuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDMtMDFUMTM6NDM6MzguMDAwWiJ9.0ntw6pIgvjTIlBYkif8AzJdahnToh5VkzcfXR8BIXEE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"nama_user\":\"athar\",\r\n    \"nama_pemesanan\":\"pemesanan sabtu\",\r\n    \"tgl_check_in\":\"2023-03-13\",\r\n\"tgl_check_out\":\"2023-03-16\",\r\n\"nama_tamu\":\"nafis\",\r\n\"jumlah_kamar\":1,\r\n\"id_tipe_kamar\":7,\r\n\"id_user\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/pemesanan/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"pemesanan",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "approve_pemesanan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjc4NDM2NDA4LCJleHAiOjE2Nzg0NDAwMDh9.ZFbIcB3uU0VRJxWMeraAPuwzd5XSsrOf9bjOht2cgRU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n   \r\n\"status_pemesanan\":\"check_in\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/pemesanan/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"pemesanan",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_pemesanan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjc4NDQwNTY0LCJleHAiOjE2Nzg0NDQxNjR9.ENNAxeYMTeCcyLhedIMj8pEGuZt90zLyKwnBVZDm5X4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomor_kamar\":1,\r\n    \"nama_user\":\"athar\",\r\n    \"nomor_pemesanan\":\"1\",\r\n    \"nama_pemesanan\":\"standart1\",\r\n    \"tgl_check_in\":\"2023-03-01 14:36:36\",\r\n\"tgl_check_out\":\"2023-03-02 14:36:36\",\r\n\"nama_tamu\":\"afrian\",\r\n\"jumlah_kamar\":1,\r\n\"id_tipe_kamar\":1,\r\n\"status_pemesanan\":\"check_in\",\r\n\"id_user\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/pemesanan/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"pemesanan",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filterkamar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tgl_check_in\":\"2023-03-10 00:00:00\",\r\n    \"tgl_check_out\":\"2023-03-20 00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/hotel/filter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"hotel",
+								"filter"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
