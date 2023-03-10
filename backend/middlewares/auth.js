@@ -1,23 +1,34 @@
-const jwt = require('jsonwebtoken');
-const SECRET_KEY = '!@#$%^&*()_+';
+const jwt = require("jsonwebtoken");
 
-auth = (req, res, next) => {
-    let header = req.headers.authorization;
-    let token = header && header.split(' ')[1];
+module.exports = {
+    mustBeAdmin(req, res, next) {
+        const role = req.user?.role;
 
-    let jwtHeader = {
-        algorithm: "HS256"
-    };
+        if (!role || role !== "admin") {
+            res.status(403).json({ message: "Admin role required" });
+            return;
+        }
 
-    if (token == null) return res.sendStatus(401).json({ message: "Unauthorized" });
-
-    jwt.verify(token, SECRET_KEY, jwtHeader, (err, usr) => {
-        if (err) return res.sendStatus(401).json({ message: "Invalid Token" });
-
-        req.user = usr;
-        console.log(req.user);
         next();
-    });
-};
+    },
 
-module.exports = auth;
+    mustLogin(req, res, next) {
+        const token = req.get("Authorization")?.split(' ')[1];
+
+        if (!token) {
+            res.status(401).json({ message: "Login required" });
+            return;
+        }
+
+        jwt.verify(token, process.env.SECRET_KEY, (err, payload) => {
+            if (err) {
+                res.status(401).json({ message: err.message });
+                console.error(err);
+                return;
+            }
+
+            req.user = payload;
+            next();
+        });
+    }
+};

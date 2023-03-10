@@ -2,7 +2,7 @@
 const tipe_kamar = require("../models/index").tipe_kamar
 
 //auth
-const auth = require('../middlewares/auth.js')
+const { mustLogin, mustBeAdmin } = require('../middlewares/auth.js')
 const SECRET_KEY = '!@#$%^&*()_+';
 const jwt = require('jsonwebtoken')
 const md5 = require('md5')
@@ -15,7 +15,7 @@ const fs = require('fs');
 //middlewares
 const express = require('express')
 const { req, res } = require('express');
-const { uploadImage } = require("../middlewares/imgRoom.js");
+const uploadImage = require("../middlewares/imgRoom.js");
 const { json } = require("body-parser");
 const Op = require(`sequelize`).Op
 const app = express();
@@ -38,7 +38,7 @@ app.get('/:id', async (req, res) => {
 });
 
 
-app.post('/',auth,upload.uploadImage.single('foto'), async (req, res) => {
+app.post('/', mustLogin, mustBeAdmin, upload.uploadImage.single('foto'), async (req, res) => {
     let data = {
         nama_tipe_kamar: req.body.nama_tipe_kamar,
         foto: req.file.filename,
@@ -53,7 +53,7 @@ app.post('/',auth,upload.uploadImage.single('foto'), async (req, res) => {
         });
 })
 
-app.put('/:id', upload.uploadImage.single('foto'), async (req, res) => {
+app.put('/:id', mustLogin, mustBeAdmin, upload.uploadImage.single('foto'), async (req, res) => {
     let params = { id: req.params.id }
     let data = {
         nama_tipe_kamar: req.body.nama_tipe_kamar,
@@ -82,7 +82,7 @@ app.put('/:id', upload.uploadImage.single('foto'), async (req, res) => {
         .catch(error => res.json({ message: error.message }))
 });
 
-app.delete('/:id',auth, upload.uploadImage.single('foto'), async (req, res) => {
+app.delete('/:id', mustLogin, mustBeAdmin, upload.uploadImage.single('foto'), async (req, res) => {
     let params = { id: req.params.id }
 
     let delimg = await tipe_kamar.findOne({ where: params })
