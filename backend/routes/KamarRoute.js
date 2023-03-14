@@ -37,7 +37,12 @@ app.get("/:id", async (req, res) => {
     .then(result => res.json({
       data: result,
       message: "data has been loaded",
-    }))
+    })).catch((error) => {
+      return res.json({
+        success: false,
+        error: error
+      })
+    })
 })
 
 

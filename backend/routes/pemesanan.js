@@ -27,7 +27,7 @@ app.post("/", async (req, res) => {
         tgl_check_in: req.body.tgl_check_in,
         tgl_check_out: req.body.tgl_check_out,
         nama_tamu: req.body.nama_tamu,
-        jumlah_kamar: req.body.jumlah_kamar,
+        jumlah_kamar: 1,
         id_tipe_kamar: req.body.id_tipe_kamar,
         status_pemesanan: "baru",
         id_user: req.body.id_user,

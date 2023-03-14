@@ -16,7 +16,7 @@ const fs = require("fs");
 //middlewares
 const express = require("express");
 const { req, res } = require("express");
-const { uploadImage } = require("../middlewares/imgUser");
+const uploadImage = require("../middlewares/imgUser");
 const { json } = require("body-parser");
 const { mustLogin, mustBeAdmin } = require("../middlewares/auth")
 const Op = require(`sequelize`).Op;
@@ -91,7 +91,6 @@ app.put("/:id", mustLogin, mustBeAdmin, upload.uploadImage.single("foto"), async
 
 app.delete("/:id", mustLogin, mustBeAdmin, async (req, res) => {
   let params = { id: req.params.id };
-
   let delImg = await user.findOne({ where: params });
   if (delImg) {
     let delImgName = delImg.foto;
@@ -101,7 +100,7 @@ app.delete("/:id", mustLogin, mustBeAdmin, async (req, res) => {
   await user
     .destroy({ where: params })
     .then((result) =>
-      res.json({ success: 1, message: "Data has been deleted" })
+      res.json({ success: 1, "data deleted ": delImg, message: "Data has been deleted" })
     )
     .catch((error) => res.json({ message: error.message }));
 });
