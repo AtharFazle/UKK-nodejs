@@ -100,7 +100,7 @@ app.put('/:id', mustLogin, mustBeAdmin, async (req, res) => {
   } else {
     let data = {
       nomor_kamar: req.body.nomor_kamar,
-      id_tipe_kamar: req.body.id_tipe_kamar
+      id_tipe_kamar: tipeId.id
     }
     kamar
       .update(data, { where: params })
